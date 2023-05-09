@@ -36,8 +36,6 @@ export const AddPostForm = () => {
     }
   }
 
-  console.log('update master')
-
   const usersOptions = users.map((user) => (
     <option key={user.id} value={user.id}>
       {user.name}
