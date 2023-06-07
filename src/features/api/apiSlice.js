@@ -14,8 +14,22 @@ export const apiSlice = createApi({
       // The URL for the request is '/fakeApi/posts'
       query: () => '/posts',
     }),
+    getPost: builder.query({
+      query: postId => `/posts/${postId}`
+    }),
+    addNewPost: builder.mutation({
+      query: initialPost => ({
+        url: '/posts',
+        method: 'POST',
+        // Include the entire post object as the body of the request
+        body: initialPost
+      })
+    }),
   }),
 })
 
-// Export the auto-generated hook for the `getPosts` query endpoint
-export const { useGetPostsQuery } = apiSlice
+export const {
+  useGetPostsQuery,
+  useGetPostQuery,
+  useAddNewPostMutation
+} = apiSlice
